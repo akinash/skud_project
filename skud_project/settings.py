@@ -129,6 +129,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 RAVEN_CONFIG = {
     'dsn': 'https://f0ca41fc4c6e40bda9c08470e3aef82a:f271440c13ab4a24bdb0131ceb4f6065@sentry.io/215519',
