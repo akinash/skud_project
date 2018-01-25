@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'import_export',
-    'raven.contrib.django.raven_compat',
+    #'raven.contrib.django.raven_compat',
     'redis',
     'rangefilter',
     'django_admin_listfilter_dropdown',
@@ -131,12 +131,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-RAVEN_CONFIG = {
-    'dsn': 'https://f0ca41fc4c6e40bda9c08470e3aef82a:f271440c13ab4a24bdb0131ceb4f6065@sentry.io/215519',
-    # If you are using git, you can also automatically configure the
-    # release based on the git info.
-    'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
-}
+# RAVEN_CONFIG = {
+#     'dsn': 'https://f0ca41fc4c6e40bda9c08470e3aef82a:f271440c13ab4a24bdb0131ceb4f6065@sentry.io/215519',
+#     # If you are using git, you can also automatically configure the
+#     # release based on the git info.
+#     'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
+# }
 
 try:
     from skud_project.local_settings import *
