@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'skud.apps.SkudConfig',
     'import_export',
     'raven.contrib.django.raven_compat',
     'redis',
     'rangefilter',
-    'django_admin_listfilter_dropdown'
+    'django_admin_listfilter_dropdown',
+    'skud',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +128,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_URL = '/static/'
 
 RAVEN_CONFIG = {
@@ -137,3 +136,8 @@ RAVEN_CONFIG = {
     # release based on the git info.
     'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
 }
+
+try:
+    from skud_project.local_settings import *
+except ImportError:
+    pass

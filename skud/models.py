@@ -16,7 +16,7 @@ class Employee(models.Model):
     name = models.CharField(max_length=30, verbose_name='Имя', default=None)
     surname = models.CharField(max_length=30, blank=True, null=True, verbose_name='Фамилия')
     patronymic = models.CharField(max_length=30, blank=True, null=True, verbose_name='Отчество')
-    department = models.ForeignKey(Department, blank=True, null=True, verbose_name='Департамент')
+    department = models.ForeignKey(Department, blank=True, null=True, verbose_name='Департамент', on_delete=models.CASCADE)
     day_start_datetime = models.TimeField(blank=True, null=True, verbose_name='Время начала рабочего дня')
     day_end_datetime = models.TimeField(blank=True, null=True, verbose_name='Время окончания рабочего дня')
     card_number = models.CharField(max_length=50, verbose_name='Номер карты', null=True)
@@ -60,8 +60,8 @@ class RawEvent(models.Model):
 
 class EmployeeSummaryDay(models.Model):
     date = models.DateField(verbose_name='Дата')
-    employee = models.ForeignKey(Employee, verbose_name='Сотрудник')
-    department = models.ForeignKey(Department, blank=True, null=True, verbose_name='Департамент')
+    employee = models.ForeignKey(Employee, verbose_name='Сотрудник', on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, blank=True, null=True, verbose_name='Департамент', on_delete=models.CASCADE)
     first_enter = models.TimeField(blank=True, null=True, editable=False, verbose_name='Время первого входа')
     last_exit = models.TimeField(blank=True, null=True, editable=False, verbose_name='Время последнего выхода')
     hours_delay = models.FloatField(blank=True, null=True, editable=False, verbose_name='Часов опоздания')
